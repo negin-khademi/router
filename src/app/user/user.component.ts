@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IUser } from '../interface/app.interface';
 
 @Component({
@@ -36,7 +36,9 @@ export class UserComponent implements OnInit {
     if (!this.selectedUser) {
       this.isUserFound = false
     }
-
+    this.router.params.subscribe((params: Params)=>{
+      this.selectedUser = this.users.find(user=> user.id === +params['id'])
+    })
 
 
 
