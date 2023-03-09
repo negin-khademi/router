@@ -1,0 +1,5 @@
+<div *ngIf="isUserFound;else elseCond">
+  <p>this user is {{selectedUser?.name}}</p>
+  <p>the user id is {{ selectedUser?.id }}</p>
+</div>
+<ng-template #elseCond>This user is not found</ng-template>
